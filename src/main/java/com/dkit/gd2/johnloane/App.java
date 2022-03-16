@@ -48,7 +48,11 @@ public class App
         compareTwoStudents();
         questionFourPartA();
         questionFourPartB();
-//        questionFourPartC();
+        questionFourPartC();
+    }
+
+    private void questionFourPartC() {
+        System.out.println("Added equals and hashcode for the name filed in student class.\n the hashcode are the same and the method returns true");
     }
 
     private void questionFourPartB() {
