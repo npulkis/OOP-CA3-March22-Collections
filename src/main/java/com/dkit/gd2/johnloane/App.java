@@ -1,7 +1,6 @@
 package com.dkit.gd2.johnloane;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * OOP CA3
@@ -9,31 +8,173 @@ import java.util.List;
  */
 public class App 
 {
-    public static void main( String[] args )
+    ArrayList<Student> students;
+    ArrayList<Employee> employees;
+    Set<String> newProducts;
+    Map<String,Integer> nameCount;
+    Queue<Employee> employeeQueue;
+
+
+    public static void main(String[] args) {
+        System.out.println("CA3 Mock  Example");
+        App app = new App();
+        app.start();
+    }
+
+    public void start()
     {
         //Question 1
+
         questionOnePartA();
         questionOnePartB();
         questionOnePartC();
         questionOnePartD();
 
-        //Question 2
-        questionTwoPartA();
-        questionTwoPartB();
-        questionTwoPartC();
-        questionTwoPartD();
+//        //Question 2
+          questionTwoPartA();
+          questionTwoPartB();
+          questionTwoPartC();
+          questionTwoPartD();
+//
+//        //Question 3
+//        List<String> oneHundredStrings = new ArrayList<>();
+//        populateOneHundredStrings(oneHundredStrings);
+//        questionThreePartA(oneHundredStrings);
+//        questionThreePartB();
+//
+//        //Question 4
+//        compareTwoStudents();
+//        questionFourPartA();
+//        questionFourPartB();
+//        questionFourPartC();
+    }
 
-        //Question 3
-        List<String> oneHundredStrings = new ArrayList<>();
-        populateOneHundredStrings(oneHundredStrings);
-        questionThreePartA(oneHundredStrings);
-        questionThreePartB();
+    private void questionTwoPartD() {
+        System.out.println("Queue is best used as it keeps in order of objects add removes in order\n");
 
-        //Question 4
-        compareTwoStudents();
-        questionFourPartA();
-        questionFourPartB();
-        questionFourPartC();
+        employeeQueue = new LinkedList<Employee>();
+        for (Employee employee: employees){
+            employeeQueue.add(employee);
+        }
+
+        Employee next = getNextOnWaitingList(employeeQueue);
+
+
+    }
+
+    private Employee getNextOnWaitingList(Queue<Employee> employeeQueue) {
+
+        return employeeQueue.remove();
+    }
+
+    public void printNameAndCount(Map<String,Integer> nameCount){
+
+
+
+        for (Map.Entry<String, Integer >entry : nameCount.entrySet()){
+            System.out.println("Name: " + entry.getKey() + ", Count: " + entry.getValue());
+        }
+    }
+
+    private void questionTwoPartC() {
+
+        System.out.println("Hash map is best used here because we can store the name as a key and an integer with how many employees have the same name\n");
+        nameCount= new HashMap<String, Integer>();
+
+        for (Employee employee: employees){
+            Integer count = nameCount.get(employee.getFirstName());
+
+            if (count != null){
+                nameCount.put(employee.getFirstName(),(count+1));
+            }else {
+                nameCount.put(employee.getFirstName(),1);
+            }
+
+        }
+
+        printNameAndCount(nameCount);
+
+
+
+
+    }
+
+    public void printUniqueNames(Set<String> uniqueNames) {
+
+        System.out.println("\n uniqueNames:");
+        Iterator<String> iterator = uniqueNames.iterator();
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+
+    private void questionTwoPartB() {
+        System.out.println("Hashset set is best suited as it doesnt allow duplicates");
+        newProducts = new HashSet<String>();
+
+        for (Employee employee :employees){
+
+            newProducts.add(employee.getFirstName());
+        }
+
+        printUniqueNames(newProducts);
+    }
+
+    private void questionTwoPartA() {
+
+        employees = new ArrayList<>();
+        employees.add(new Employee("Josh","Smith"));
+        employees.add(new Employee("Emma","Bell"));
+        employees.add(new Employee("Shane","McCarthy"));
+        employees.add(new Employee("Joe","Bloggs"));
+        employees.add(new Employee("Tom","Jones"));
+
+        pickLuckyWinner(employees);
+
+
+
+    }
+    public void pickLuckyWinner(ArrayList<Employee> employees) {
+
+
+        Random random = new Random();
+        int randomNumber = random.nextInt(employees.size());
+
+        Employee winner = employees.get(randomNumber);
+        System.out.println("The Winner is : "+ winner.toString());
+
+    }
+
+    private void questionOnePartD() {
+        System.out.println("Q1 D. ArrayList .add = O(N) .sort = O(n log n)");
+    }
+
+    private void questionOnePartC() {
+        Collections.sort(students,new AgeComparator());
+
+        System.out.println("\n");
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
+
+
+    private  void questionOnePartA() {
+        students =new ArrayList<Student>();
+        students.add(new Student(1,"John",20));
+        students.add(new Student(2,"Bob",25));
+        students.add(new Student(3,"Tom",18));
+        students.add(new Student(4,"Shane",22));
+
+    }
+
+    private  void questionOnePartB() {
+        Collections.sort(students,new NameComparetor());
+
+        for (Student student : students) {
+            System.out.println(student);
+        }
     }
 
     //The method below relates to Question 4
