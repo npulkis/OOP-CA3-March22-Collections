@@ -42,13 +42,18 @@ public class App
         populateOneHundredStrings(oneHundredStrings);
 
         questionThreePartA(oneHundredStrings);
-//        questionThreePartB();
+        questionThreePartB();
 //
 //        //Question 4
 //        compareTwoStudents();
 //        questionFourPartA();
 //        questionFourPartB();
 //        questionFourPartC();
+    }
+
+    private void questionThreePartB() {
+
+        System.out.println("LinkedHashSet Time Complexity:  .add O(1)\n");
     }
 
     private void questionThreePartA(List<String> oneHundredStrings) {
