@@ -13,6 +13,7 @@ public class App
     Set<String> newProducts;
     Map<String,Integer> nameCount;
     Queue<Employee> employeeQueue;
+    Set<String> LinkedHashSet;
 
 
     public static void main(String[] args) {
@@ -37,9 +38,10 @@ public class App
           questionTwoPartD();
 //
 //        //Question 3
-//        List<String> oneHundredStrings = new ArrayList<>();
-//        populateOneHundredStrings(oneHundredStrings);
-//        questionThreePartA(oneHundredStrings);
+        List<String> oneHundredStrings = new ArrayList<>();
+        populateOneHundredStrings(oneHundredStrings);
+
+        questionThreePartA(oneHundredStrings);
 //        questionThreePartB();
 //
 //        //Question 4
@@ -47,6 +49,17 @@ public class App
 //        questionFourPartA();
 //        questionFourPartB();
 //        questionFourPartC();
+    }
+
+    private void questionThreePartA(List<String> oneHundredStrings) {
+
+        LinkedHashSet = new LinkedHashSet<String>();
+
+        for (int i = 0; i < oneHundredStrings.size(); i++) {
+            LinkedHashSet.add(oneHundredStrings.get(i));
+        }
+
+        System.out.println(LinkedHashSet);
     }
 
     private void questionTwoPartD() {
