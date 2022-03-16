@@ -45,10 +45,18 @@ public class App
         questionThreePartB();
 //
 //        //Question 4
-//        compareTwoStudents();
-//        questionFourPartA();
-//        questionFourPartB();
+        compareTwoStudents();
+        questionFourPartA();
+        questionFourPartB();
 //        questionFourPartC();
+    }
+
+    private void questionFourPartB() {
+        System.out.println("Hashcode override method has not been setup in the student class \n");
+    }
+
+    private void questionFourPartA() {
+        System.out.println("The Method returns false because there is override .equals method in the student class.\n ");
     }
 
     private void questionThreePartB() {

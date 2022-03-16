@@ -27,13 +27,4 @@ public class Student
     {
         return age;
     }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
 }
